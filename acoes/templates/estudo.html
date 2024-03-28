@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <title>Tabela com 4 colunas</title>
+</head>
+<body>
+
+<div class="container">
+  <h2>Exemplo de Tabela com 4 Colunas em Bootstrap</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th class="text-center col-0.5">Ação</th>
+            <th class="text-center col-0.5">Média</th>
+            <th class="text-center col-0.5">Desvio Padrão</th>
+            <th class="text-center col-0.5">Coeficiente de Variação</th>
+            <th class="text-center col-0.5">Regiões de Compra Estratégica</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      {% for acao in acoes %}
+      <tr>
+        <td class="text-left col-0.5">{{ acao.nome }}</td>
+        <td class="text-center col-0.5">{{ acao.media }}</td>
+        <td class="text-center col-0.5">{{ acao.desvio_padrao }}</td>
+        <td class="text-center col-0.5">{{ acao.coef_variacao }}</td>
+      </tr>
+      {% endfor %}
+      
+    </tbody>
+  </table>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

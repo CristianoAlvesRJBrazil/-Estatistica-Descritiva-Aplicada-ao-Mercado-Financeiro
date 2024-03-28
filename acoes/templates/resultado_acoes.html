@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <title>Estatistica Descritiva</title>
+  <!-- Estilos personalizados -->
+  <style>
+    body {
+        background-image: url('https://cdn.pixabay.com/photo/2015/09/09/20/07/stock-932400_960_720.jpg');
+        background-size: cover;
+        background-position: center;
+        color: #c6c6c6;
+        font-family: Arial, sans-serif;
+        position: relative; /* Adicionado para permitir o posicionamento absoluto */
+    }
+    .container {
+        margin-top: 50px;
+    }
+    .form-group {
+        margin-bottom: 30px;
+    }
+    header {
+        background-image: url('https://e1.pxfuel.com/desktop-wallpaper/570/527/desktop-wallpaper-1600x1200-finance-finance.jpg');
+        background-size: cover;
+        background-position: center;
+        padding: 20px;
+        text-align: center;
+    }
+    footer {
+        background-image: url('https://e1.pxfuel.com/desktop-wallpaper/570/527/desktop-wallpaper-1600x1200-finance-finance.jpg');
+        background-size: cover;
+        background-position: center;
+        padding: 20px;
+        text-align: center;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+    .table-container {
+        margin-top: 50px;
+    }
+    .btn-back {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 999; /* Garante que o botão esteja acima de outros elementos */
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Dados Financeiros</h1>
+  </header>
+
+  <button class="btn btn-primary btn-back" onclick="window.location.href='http://127.0.0.1:8000/formulario/'">Nova Busca</button>
+
+  <div class="container">    
+    <h2>Tabela de Estatística Descritiva</h2>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th class="text-center col-0.5">Ação</th>
+          <th class="text-center col-0.5">Média</th>
+          <th class="text-center col-0.5">Desvio Padrão</th>
+          <th class="text-center col-0.5">Coeficiente de Variação</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for acao in acoes %}
+        <tr>
+          <td class="text-left col-0.5">{{ acao.nome }}</td>
+          <td class="text-center col-0.5">{{ acao.media }}</td>
+          <td class="text-center col-0.5">{{ acao.desvio_padrao }}</td>
+          <td class="text-center col-0.5">{{ acao.coef_variacao }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container pt-2"> 
+    <h2>Visualização Gráfica</h2>
+    <img src="data:image/png;base64,{{ graphic }}" alt="Gráfico">
+  </div>
+  
+
+  <footer>
+    <p>&copy; 2024 Cristiano Alves. Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
